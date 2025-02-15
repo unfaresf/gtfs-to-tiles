@@ -1,0 +1,13 @@
+{
+  "agencies": [
+    {
+      "agency_key": "sfbayarea",
+      "path": "data/sf-gtfs.zip"
+    }
+  ],
+  "coordinatePrecision": 5,
+  "outputType": "route",
+  "outputFormat": "lines-and-stops",
+  "verbose": true,
+  "zipOutput": false
+}

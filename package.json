@@ -1,0 +1,23 @@
+{
+  "name": "tileset-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "convert": "node ./dist/convert-gtfs-to-geojson.js",
+    "convert:inspect": "node --inspect-brk ./dist/convert-gtfs-to-geojson.js"
+  },
+  "author": "Andy McCoy",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "gtfs-to-geojson": "^3.7.9"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/node": "^22.13.4",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,6 @@
+.DS_Store
+data
+dist
+tiles
+node_modules
+geojson
