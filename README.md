@@ -15,7 +15,7 @@ npm run convert data/sf-gtfs.zip geojson/sf-transit.geojson
 Convert geojson to mbtiles with [tippecanoe](https://github.com/felt/tippecanoe) using the following command.
 
 ```
-tippecanoe --force -zg -o tiles/transit_lines.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/sf-transit.geojson
+tippecanoe --force -zg -o tiles/sf-bay-area-routes.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/sf-bay-area-routes/sf-bay-area-routes.geojson
 ```
 
 View the output file with

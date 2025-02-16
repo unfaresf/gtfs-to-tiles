@@ -98,7 +98,8 @@ async function processGTFS(zipFilePath: string, outputFilePath: string) {
     }
 
     const directedRoute = shapeToRouteDict.get(currShapeId);
-    if (!directedRoute || seenDirectedRouteIds.has(`${directedRoute.routeId}${directedRoute.directionId}`)) {
+    // if (!directedRoute || seenDirectedRouteIds.has(`${directedRoute.routeId}${directedRoute.directionId}`)) {
+    if (!directedRoute) {
       continue;
     }
 
@@ -127,8 +128,7 @@ async function processGTFS(zipFilePath: string, outputFilePath: string) {
   console.log(`GeoJSON written to ${outputFilePath}`);
 }
 
-const [n, p, ...args] = process.argv;
-const [zipPath, geojsonPath] = args;
+const [n, p, zipPath, geojsonPath] = process.argv;
 
 if (!existsSync(zipPath)) {
   console.error(`GTFS zip path incorrect: ${zipPath}`);

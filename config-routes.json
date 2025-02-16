@@ -1,0 +1,14 @@
+{
+  "agencies": [
+    {
+      "agency_key": "sf-bay-area-routes",
+      "path": "data/sf-gtfs.zip"
+    }
+  ],
+  "coordinatePrecision": 5,
+  "outputType": "agency",
+  "outputFormat": "lines",
+  "verbose": true,
+  "zipOutput": false,
+  "exclude": ["areas","attributions","calendar","calendar_attributes","calendar_dates","changes-to","fare_leg_rules","fare_media","fare_products","fare_transfer_rules","feed_info","levels","mtc_feed_versions","pathways","rider_categories","route_attributes","timeframes","transfers"]
+}
