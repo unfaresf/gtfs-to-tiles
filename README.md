@@ -9,13 +9,14 @@ Warning [convert-gtfs-to-geojson.ts](convert-gtfs-to-geojson.ts) is buggy and do
 npm run convert path/to/gtfs.zip path/to/output/location.geojson
 
 // e.g.
-npm run convert data/sf-gtfs.zip geojson/sf-transit.geojson
+npm run convert -- trips -p ./data/gtfs.zip -o geojson/trips.geojson
 ```
 
 Convert geojson to mbtiles with [tippecanoe](https://github.com/felt/tippecanoe) using the following command.
 
 ```
-tippecanoe --force -zg -o tiles/sf-bay-area-routes.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/sf-bay-area-routes/sf-bay-area-routes.geojson
+tippecanoe --force -zg -o tiles/stops.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/stops.geojson
+tippecanoe --force -zg -o tiles/trips.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/trips.geojson
 ```
 
 View the output file with

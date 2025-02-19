@@ -1,13 +1,9 @@
 import type { Database } from 'better-sqlite3';
-import type { CustomStop, StopFeature } from './gtfs.types.js';
-import { bbox, point, featureCollection } from "@turf/turf";
+import type { CustomStop } from './gtfs.types.js';
+import { point } from "@turf/turf";
 import { open } from 'node:fs/promises';
 
 export const Exclude = ["areas","attributions","calendar","calendar_attributes","calendar_dates","changes-to","fare_leg_rules","fare_media","fare_products","fare_transfer_rules","feed_info","levels","mtc_feed_versions","pathways","rider_categories","route_attributes","timeframes","transfers","shapes"];
-
-function getDirectedRouteId(stop:CustomStop) {
-  return `${stop.route_id}:${stop.direction_id}`;
-}
 
 function stopFeatureFactory(stop:CustomStop) {
   return point(
@@ -23,18 +19,6 @@ function stopFeatureFactory(stop:CustomStop) {
       id: stop.stop_id
     }
   );
-}
-
-function stopFeatureCollctionFactory(stopFeatures, directedRouteId) {
-  const collection = featureCollection(stopFeatures, {
-    id: `stops:${directedRouteId}`,
-  });
-  const box = bbox(collection);
-
-  return featureCollection(stopFeatures, {
-    id: `stops:${directedRouteId}`,
-    bbox: box,
-  });
 }
 
 function getStartOfFeatureCollectionFile() {

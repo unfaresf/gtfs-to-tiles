@@ -1,0 +1,10 @@
+{
+  "agencies": [
+    {
+      "path": "data/gtfs.zip"
+    }
+  ],
+  "ignoreDuplicates": true,
+  "ignoreErrors": true,
+  "sqlitePath": "data/gtfs-blue.db"
+}

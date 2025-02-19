@@ -1,3 +1,5 @@
+import type { Position } from 'geojson'
+
 // gtfs types
 export type Route = {
   route_id:string;
@@ -60,4 +62,17 @@ export type StopFeature = {
     type: string,
     coordinates: [CustomStop['stop_lon'], CustomStop['stop_lat']],
   }
+}
+
+export type CustomTrip = {
+  route_id: string;
+	agency_id: string;
+	route_short_name: string;
+	route_long_name: string;
+	route_color: string;
+	route_text_color: string;
+	direction_id: number;
+	shape_id: string;
+	line: Position[];
+  trip_id: string;
 }

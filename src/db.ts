@@ -1,9 +1,12 @@
 import { importGtfs, openDb } from 'gtfs';
 import Database from 'better-sqlite3';
+import { existsSync } from 'fs';
 
-const db = new Database(':memory:');
+export default async function GetGtfsDb(gtfsPath:string, exclude: string[] = [], databasePath?:string) {
+  const db = databasePath ? new Database(databasePath) : new Database(':memory:');
 
-export default async function GetGtfsDb(gtfsPath:string, exclude: string[] = []) {
+  if (databasePath && existsSync(databasePath)) return db;
+
   await importGtfs({
     agencies: [
       {
@@ -11,7 +14,7 @@ export default async function GetGtfsDb(gtfsPath:string, exclude: string[] = [])
         exclude,
       },
     ],
-    db,
+    db
   });
   return db;
 }
