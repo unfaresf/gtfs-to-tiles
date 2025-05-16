@@ -24,11 +24,11 @@ npm run convert -- stops -p ./data/gtfs.zip -o geojson/stops.geojson
 Convert geojson to mbtiles with [tippecanoe](https://github.com/felt/tippecanoe) using the following command.
 
 ```
-tippecanoe --force -zg -o tiles/stops.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/stops.geojson
 tippecanoe --force -zg -o tiles/trips.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/trips.geojson
+tippecanoe --force -zg -o tiles/stops.mbtiles --drop-densest-as-needed --extend-zooms-if-still-dropping geojson/stops.geojson
 ```
 
-View the output file with
+Confirm tiles looks okay by viewing them with:
 ```
 docker run --rm -it -v ./tiles:/data -p 8080:8080 maptiler/tileserver-gl
 ```

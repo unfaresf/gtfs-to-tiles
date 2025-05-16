@@ -74,7 +74,6 @@ export default async function GenerateTripsGeoJson(db:Database, outputPath:strin
       ORDER BY shapes.shape_pt_sequence ASC
     ) AS meta_shapes
     ON meta_shapes.shape_id = trips.shape_id
-    GROUP BY routes.route_id, trips.direction_id
   `;
   const tripsStatement = db.prepare(statement);
   let firstWrite = true;
