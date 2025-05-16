@@ -2,6 +2,7 @@ import type { Database } from 'better-sqlite3';
 import type { CustomStop } from './gtfs.types.js';
 import { point } from "@turf/turf";
 import { open } from 'node:fs/promises';
+import { resolve } from 'path';
 
 export const Exclude = ["areas","attributions","calendar","calendar_attributes","calendar_dates","changes-to","fare_leg_rules","fare_media","fare_products","fare_transfer_rules","feed_info","levels","mtc_feed_versions","pathways","rider_categories","route_attributes","timeframes","transfers","shapes"];
 
@@ -67,4 +68,5 @@ export default async function GenerateStopsGeoJson(db:Database, outputPath:strin
   }
 
   outputWS.write(getEndOfFeatureCollectionFile());
+  return resolve(outputPath);
 }

@@ -27,7 +27,8 @@ yargs(hideBin(process.argv))
   }, async ({gtfsPath, outputPath, databasePath}) => {
     const db = await GetGtfsDb(gtfsPath, StopsExclude, databasePath);
 
-    await GenerateStopsGeoJson(db, outputPath);
+    const outputFilePath = await GenerateStopsGeoJson(db, outputPath);
+    console.log(outputFilePath);
   })
   .command('trips', 'Generate GeoJSON of trips in GTFS', {
     'gtfs-path': {
@@ -51,7 +52,8 @@ yargs(hideBin(process.argv))
   }, async ({gtfsPath, outputPath, databasePath}) => {
     const db = await GetGtfsDb(gtfsPath, TripsExclude, databasePath);
 
-    await GenerateTripsGeoJson(db, outputPath);
+    const outputFilePath = await GenerateTripsGeoJson(db, outputPath);
+    console.log(outputFilePath);
   })
   .demandCommand(1)
   .help()

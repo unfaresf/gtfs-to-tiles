@@ -2,6 +2,7 @@ import type { Database } from 'better-sqlite3';
 import type { CustomTrip } from './gtfs.types.js';
 import { lineString } from "@turf/turf";
 import { open } from 'node:fs/promises';
+import { resolve } from 'path';
 
 export const Exclude = ["areas","attributions","calendar","calendar_attributes","calendar_dates","changes-to","fare_leg_rules","fare_media","fare_products","fare_transfer_rules","feed_info","levels","mtc_feed_versions","pathways","rider_categories","route_attributes","stop_times","timeframes","transfers"];
 
@@ -91,4 +92,5 @@ export default async function GenerateTripsGeoJson(db:Database, outputPath:strin
   }
 
   outputWS.write(getEndOfFeatureCollectionFile());
+  return resolve(outputPath);
 }
