@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest",
-    "watch": "tsc -w",
+    "dev": "tsc -w",
     "build": "tsc",
     "convert": "node ./dist/index.js"
   },
