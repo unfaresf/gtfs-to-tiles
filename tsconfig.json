@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
+    // TS 6.0 flipped `strict` to default true. Keep the project's original
+    // non-strict behavior explicitly; enabling strict is a separate decision.
+    "strict": false,
     "module": "NodeNext",
     "esModuleInterop": true,
     "target": "ESNext",
     "moduleResolution": "nodenext",
     "sourceMap": true,
     "outDir": "dist",
+    "rootDir": "./src",
   },
   "lib": ["es2015"]
 }

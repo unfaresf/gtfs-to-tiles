@@ -1,4 +1,4 @@
-import { importGtfs, openDb } from 'gtfs';
+import { importGtfs, openDb, type TableNames } from 'gtfs';
 import Database from 'better-sqlite3';
 import { existsSync } from 'fs';
 
@@ -11,7 +11,10 @@ export default async function GetGtfsDb(gtfsPath:string, exclude: string[] = [],
     agencies: [
       {
         path: gtfsPath,
-        exclude,
+        // gtfs >=4.19 narrowed `exclude` from string[] to TableNames[]. Our
+        // lists are user-facing filename filters (and include a few
+        // non-standard files the importer simply ignores), so assert here.
+        exclude: exclude as TableNames[],
       },
     ],
     db
